@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: kcb_raw
+    database: kcb_analytics
+    schema: kcb_analytics
+    tables:
+      - name: customers
+      - name: loans
+      - name: repayments
+      - name: transactions

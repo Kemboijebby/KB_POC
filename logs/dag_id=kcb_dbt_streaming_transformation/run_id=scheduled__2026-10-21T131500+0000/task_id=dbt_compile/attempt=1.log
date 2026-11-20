@@ -1,0 +1,28 @@
+[2026-10-21T13:30:02.123+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-10-21T13:30:02.251+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kcb_dbt_streaming_transformation.dbt_compile scheduled__2026-10-21T13:15:00+00:00 [queued]>
+[2026-10-21T13:30:02.272+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kcb_dbt_streaming_transformation.dbt_compile scheduled__2026-10-21T13:15:00+00:00 [queued]>
+[2026-10-21T13:30:02.273+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2026-10-21T13:30:02.308+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): dbt_compile> on 2026-10-21 13:15:00+00:00
+[2026-10-21T13:30:02.322+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'kcb_dbt_streaming_transformation', 'dbt_compile', 'scheduled__2026-10-21T13:15:00+00:00', '--job-id', '96', '--raw', '--subdir', 'DAGS_FOLDER/kcb_dbt_pipeline.py', '--cfg-path', '/tmp/tmpowzo4vpz']
+[2026-10-21T13:30:02.331+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1103) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-10-21T13:30:02.331+0000] {standard_task_runner.py:91} INFO - Job 96: Subtask dbt_compile
+[2026-10-21T13:30:02.332+0000] {standard_task_runner.py:63} INFO - Started process 1104 to run task
+[2026-10-21T13:30:02.483+0000] {task_command.py:426} INFO - Running <TaskInstance: kcb_dbt_streaming_transformation.dbt_compile scheduled__2026-10-21T13:15:00+00:00 [running]> on host 1422926e07d0
+[2026-10-21T13:30:02.982+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='kcb_data_platform' AIRFLOW_CTX_DAG_ID='kcb_dbt_streaming_transformation' AIRFLOW_CTX_TASK_ID='dbt_compile' AIRFLOW_CTX_EXECUTION_DATE='2026-10-21T13:15:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-10-21T13:15:00+00:00'
+[2026-10-21T13:30:02.986+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-10-21T13:30:03.134+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-21T13:30:03.142+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/airflow/kcb_dbt && python -m dbt.cli.main compile --profiles-dir /home/airflow/.dbt']
+[2026-10-21T13:30:03.185+0000] {subprocess.py:86} INFO - Output:
+[2026-10-21T13:30:09.722+0000] {subprocess.py:93} INFO - <frozen runpy>:128: RuntimeWarning: 'dbt.cli.main' found in sys.modules after import of package 'dbt.cli', but prior to execution of 'dbt.cli.main'; this may result in unpredictable behaviour
+[2026-10-21T13:30:10.091+0000] {subprocess.py:93} INFO - [0m13:30:10  Running with dbt=1.12.5
+[2026-10-21T13:30:10.833+0000] {subprocess.py:93} INFO - [0m13:30:10  Registered adapter: clickhouse=1.10.3
+[2026-10-21T13:30:12.739+0000] {subprocess.py:93} INFO - [0m13:30:12  Found 6 models, 4 sources, 547 macros
+[2026-10-21T13:30:12.751+0000] {subprocess.py:93} INFO - [0m13:30:12
+[2026-10-21T13:30:12.755+0000] {subprocess.py:93} INFO - [0m13:30:12  Concurrency: 1 threads (target='dev')
+[2026-10-21T13:30:12.759+0000] {subprocess.py:93} INFO - [0m13:30:12
+[2026-10-21T13:30:16.681+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-10-21T13:30:16.684+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-10-21T13:30:16.790+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=kcb_dbt_streaming_transformation, task_id=dbt_compile, execution_date=20261021T131500, start_date=20261021T133002, end_date=20261021T133016
+[2026-10-21T13:30:16.858+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-10-21T13:30:16.921+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-10-21T13:30:16.926+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

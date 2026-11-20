@@ -1,0 +1,28 @@
+[2026-10-21T14:30:01.220+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-10-21T14:30:01.260+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kcb_dbt_streaming_transformation.dbt_compile scheduled__2026-10-21T14:15:00+00:00 [queued]>
+[2026-10-21T14:30:01.272+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kcb_dbt_streaming_transformation.dbt_compile scheduled__2026-10-21T14:15:00+00:00 [queued]>
+[2026-10-21T14:30:01.272+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2026-10-21T14:30:01.288+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): dbt_compile> on 2026-10-21 14:15:00+00:00
+[2026-10-21T14:30:01.295+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'kcb_dbt_streaming_transformation', 'dbt_compile', 'scheduled__2026-10-21T14:15:00+00:00', '--job-id', '112', '--raw', '--subdir', 'DAGS_FOLDER/kcb_dbt_pipeline.py', '--cfg-path', '/tmp/tmpzzrpt7jj']
+[2026-10-21T14:30:01.298+0000] {standard_task_runner.py:91} INFO - Job 112: Subtask dbt_compile
+[2026-10-21T14:30:01.299+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1837) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-10-21T14:30:01.300+0000] {standard_task_runner.py:63} INFO - Started process 1838 to run task
+[2026-10-21T14:30:01.365+0000] {task_command.py:426} INFO - Running <TaskInstance: kcb_dbt_streaming_transformation.dbt_compile scheduled__2026-10-21T14:15:00+00:00 [running]> on host 1422926e07d0
+[2026-10-21T14:30:01.481+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='kcb_data_platform' AIRFLOW_CTX_DAG_ID='kcb_dbt_streaming_transformation' AIRFLOW_CTX_TASK_ID='dbt_compile' AIRFLOW_CTX_EXECUTION_DATE='2026-10-21T14:15:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-10-21T14:15:00+00:00'
+[2026-10-21T14:30:01.482+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-10-21T14:30:01.498+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-21T14:30:01.500+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/airflow/kcb_dbt && python -m dbt.cli.main compile --profiles-dir /home/airflow/.dbt']
+[2026-10-21T14:30:01.511+0000] {subprocess.py:86} INFO - Output:
+[2026-10-21T14:30:05.134+0000] {subprocess.py:93} INFO - <frozen runpy>:128: RuntimeWarning: 'dbt.cli.main' found in sys.modules after import of package 'dbt.cli', but prior to execution of 'dbt.cli.main'; this may result in unpredictable behaviour
+[2026-10-21T14:30:05.282+0000] {subprocess.py:93} INFO - [0m14:30:05  Running with dbt=1.12.5
+[2026-10-21T14:30:05.652+0000] {subprocess.py:93} INFO - [0m14:30:05  Registered adapter: clickhouse=1.10.3
+[2026-10-21T14:30:06.292+0000] {subprocess.py:93} INFO - [0m14:30:06  Found 6 models, 4 sources, 547 macros
+[2026-10-21T14:30:06.296+0000] {subprocess.py:93} INFO - [0m14:30:06
+[2026-10-21T14:30:06.298+0000] {subprocess.py:93} INFO - [0m14:30:06  Concurrency: 1 threads (target='dev')
+[2026-10-21T14:30:06.299+0000] {subprocess.py:93} INFO - [0m14:30:06
+[2026-10-21T14:30:08.558+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-10-21T14:30:08.559+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-10-21T14:30:08.596+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=kcb_dbt_streaming_transformation, task_id=dbt_compile, execution_date=20261021T141500, start_date=20261021T143001, end_date=20261021T143008
+[2026-10-21T14:30:08.640+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-10-21T14:30:08.680+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-10-21T14:30:08.682+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

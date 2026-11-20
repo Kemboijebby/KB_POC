@@ -1,0 +1,68 @@
+[0m14:19:57.011610 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EB9535AAE0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EB929CD3D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EB929CE4E0>]}
+
+
+============================== 14:19:57.016936 | 4d6db395-2bcb-46b3-9688-0541a95e7753 ==============================
+[0m14:19:57.016936 [info ] [MainThread]: Running with dbt=1.12.5
+[0m14:19:57.021710 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'maximum_seed_size_mib': '1', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\Administrator\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'hints_enabled': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'invocation_command': 'dbt init kcb_dbt', 'log_path': 'logs'}
+[0m14:19:57.054229 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\Administrator\.dbt
+[0m14:19:57.061538 [debug] [MainThread]: Starter project path: D:\KCBV2\venv\Lib\site-packages\dbt\include\starter_project
+[0m14:19:57.090250 [info ] [MainThread]: Setting up your profile.
+[0m14:20:21.861149 [info ] [MainThread]: No sample profile found for clickhouse.
+[0m14:20:21.864757 [info ] [MainThread]: Running dbt debug to validate the project...
+[0m14:20:21.865288 [info ] [MainThread]: dbt version: 1.12.5
+[0m14:20:21.865860 [info ] [MainThread]: python version: 3.12.0
+[0m14:20:21.866385 [info ] [MainThread]: python path: D:\KCBV2\venv\Scripts\python.exe
+[0m14:20:21.866926 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m14:20:21.867493 [info ] [MainThread]: Using profiles dir at C:\Users\Administrator\.dbt
+[0m14:20:21.868025 [info ] [MainThread]: Using profiles.yml file at C:\Users\Administrator\.dbt\profiles.yml
+[0m14:20:21.868563 [info ] [MainThread]: Using dbt_project.yml file at D:\KCBV2\kcb_dbt\dbt_project.yml
+[0m14:20:22.072813 [info ] [MainThread]: Configuration:
+[0m14:20:22.073881 [info ] [MainThread]:   profiles.yml file [[31mERROR not found[0m]
+[0m14:20:22.074416 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m14:20:22.075485 [info ] [MainThread]: Required dependencies:
+[0m14:20:22.076018 [debug] [MainThread]: Executing "git --help"
+[0m14:20:22.119180 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m14:20:22.119180 [debug] [MainThread]: STDERR: "b''"
+[0m14:20:22.119180 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m14:20:22.119180 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m14:20:22.119180 [info ] [MainThread]: [31m1 check failed:[0m
+[0m14:20:22.119180 [info ] [MainThread]: dbt looked for a profiles.yml file in C:\Users\Administrator\.dbt\profiles.yml, but did
+not find one. For more information on configuring your profile, consult the
+documentation:
+
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m14:20:22.122705 [info ] [MainThread]: Your new dbt project "kcb_dbt" was created!
+Initialized new project in D:\KCBV2\kcb_dbt\kcb_dbt
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m14:20:22.122705 [info ] [MainThread]: [31mYour profile may need adjustments. You can find the logs of `dbt debug` above[0m
+[0m14:20:22.122705 [debug] [MainThread]: Command `dbt init` succeeded at 14:20:22.122705 after 25.32 seconds
+[0m14:20:22.122705 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EB9391E840>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EB93726780>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EB9394B740>]}
+[0m14:20:22.122705 [debug] [MainThread]: Flushing usage events
+[0m14:20:23.424800 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:25:20.697313 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206D3C8B2C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206D5E59A00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206D2C002F0>]}
+
+
+============================== 14:25:20.702543 | 66ac01c8-5b71-4803-82be-a2e8eea94a22 ==============================
+[0m14:25:20.702543 [info ] [MainThread]: Running with dbt=1.12.5
+[0m14:25:20.704550 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'maximum_seed_size_mib': '1', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\Administrator\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'hints_enabled': 'True', 'invocation_command': 'dbt init kcb_dbt', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'log_path': 'logs'}
+[0m14:25:20.734024 [info ] [MainThread]: A project called kcb_dbt already exists here.
+[0m14:25:20.736025 [debug] [MainThread]: Command `dbt init` succeeded at 14:25:20.735028 after 0.19 seconds
+[0m14:25:20.736025 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206D7BEFDA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206D5CE0B60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000206D7C827E0>]}
+[0m14:25:20.737025 [debug] [MainThread]: Flushing usage events
+[0m14:25:22.082187 [debug] [MainThread]: An error was encountered while trying to flush usage events

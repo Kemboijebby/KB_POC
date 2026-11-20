@@ -1,0 +1,252 @@
+[2026-10-13T08:45:06.292+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-10-13T08:45:06.429+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kcb_dbt_streaming_transformation.dbt_run_marts manual__2026-10-13T08:35:15.785315+00:00 [queued]>
+[2026-10-13T08:45:06.447+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kcb_dbt_streaming_transformation.dbt_run_marts manual__2026-10-13T08:35:15.785315+00:00 [queued]>
+[2026-10-13T08:45:06.448+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2026-10-13T08:45:06.475+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): dbt_run_marts> on 2026-10-13 08:35:15.785315+00:00
+[2026-10-13T08:45:06.487+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'kcb_dbt_streaming_transformation', 'dbt_run_marts', 'manual__2026-10-13T08:35:15.785315+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/kcb_dbt_pipeline.py', '--cfg-path', '/tmp/tmpqxr465m5']
+[2026-10-13T08:45:06.492+0000] {standard_task_runner.py:91} INFO - Job 10: Subtask dbt_run_marts
+[2026-10-13T08:45:06.493+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=583) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-10-13T08:45:06.495+0000] {standard_task_runner.py:63} INFO - Started process 586 to run task
+[2026-10-13T08:45:06.613+0000] {task_command.py:426} INFO - Running <TaskInstance: kcb_dbt_streaming_transformation.dbt_run_marts manual__2026-10-13T08:35:15.785315+00:00 [running]> on host 1422926e07d0
+[2026-10-13T08:45:06.789+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='kcb_data_platform' AIRFLOW_CTX_DAG_ID='kcb_dbt_streaming_transformation' AIRFLOW_CTX_TASK_ID='dbt_run_marts' AIRFLOW_CTX_EXECUTION_DATE='2026-10-13T08:35:15.785315+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-13T08:35:15.785315+00:00'
+[2026-10-13T08:45:06.790+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-10-13T08:45:06.838+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-13T08:45:06.841+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/airflow/kcb_dbt && python -m dbt.cli.main run --select marts --profiles-dir /home/airflow/.dbt']
+[2026-10-13T08:45:06.856+0000] {subprocess.py:86} INFO - Output:
+[2026-10-13T08:45:22.641+0000] {job.py:218} ERROR - Job heartbeat got an exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "kcbv2" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/job.py", line 213, in heartbeat
+    heartbeat_callback(session)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/local_task_job_runner.py", line 258, in heartbeat_callback
+    self.task_instance.refresh_from_db()
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1818, in refresh_from_db
+    _refresh_from_db(task_instance=self, session=session, lock_for_update=lock_for_update)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 510, in _refresh_from_db
+    ti = TaskInstance.get_task_instance(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/api_internal/internal_api_call.py", line 115, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1804, in get_task_instance
+    return query.one_or_none()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2850, in one_or_none
+    return self._iter().one_or_none()
+           ^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2916, in _iter
+    result = self.session.execute(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1716, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1555, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 750, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/future/engine.py", line 412, in connect
+    return super(Engine, self).connect()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "kcbv2" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2026-10-13T08:45:27.333+0000] {job.py:226} ERROR - Job heartbeat failed with error. Scheduler is in unhealthy state
+[2026-10-13T08:45:34.891+0000] {subprocess.py:93} INFO - <frozen runpy>:128: RuntimeWarning: 'dbt.cli.main' found in sys.modules after import of package 'dbt.cli', but prior to execution of 'dbt.cli.main'; this may result in unpredictable behaviour
+[2026-10-13T08:45:36.346+0000] {subprocess.py:93} INFO - [0m08:45:36  Running with dbt=1.12.5
+[2026-10-13T08:45:48.680+0000] {subprocess.py:93} INFO - [0m08:45:48  Registered adapter: clickhouse=1.10.3
+[2026-10-13T08:45:53.365+0000] {subprocess.py:93} INFO - [0m08:45:53  Found 6 models, 4 sources, 547 macros
+[2026-10-13T08:45:53.385+0000] {subprocess.py:93} INFO - [0m08:45:53
+[2026-10-13T08:45:53.391+0000] {subprocess.py:93} INFO - [0m08:45:53  Concurrency: 1 threads (target='dev')
+[2026-10-13T08:45:53.396+0000] {subprocess.py:93} INFO - [0m08:45:53
+[2026-10-13T08:46:05.216+0000] {subprocess.py:93} INFO - WARNING:clickhouse_driver.connection:Failed to connect to kcb_clickhouse:9000
+[2026-10-13T08:46:05.278+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-10-13T08:46:05.303+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_driver/connection.py", line 428, in connect
+[2026-10-13T08:46:05.306+0000] {subprocess.py:93} INFO -     return self._init_connection(host, port)
+[2026-10-13T08:46:05.308+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:46:05.310+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_driver/connection.py", line 358, in _init_connection
+[2026-10-13T08:46:05.312+0000] {subprocess.py:93} INFO -     self.socket = self._create_socket(host, port)
+[2026-10-13T08:46:05.316+0000] {subprocess.py:93} INFO -                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:46:05.317+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_driver/connection.py", line 305, in _create_socket
+[2026-10-13T08:46:05.321+0000] {subprocess.py:93} INFO -     for res in socket.getaddrinfo(host, port, 0, socket.SOCK_STREAM):
+[2026-10-13T08:46:05.324+0000] {subprocess.py:93} INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:46:05.326+0000] {subprocess.py:93} INFO -   File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+[2026-10-13T08:46:05.328+0000] {subprocess.py:93} INFO -     for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+[2026-10-13T08:46:05.329+0000] {subprocess.py:93} INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:46:05.331+0000] {subprocess.py:93} INFO - socket.gaierror: [Errno -3] Temporary failure in name resolution
+[2026-10-13T08:46:16.524+0000] {subprocess.py:93} INFO - WARNING:clickhouse_driver.connection:Failed to connect to kcb_clickhouse:9000
+[2026-10-13T08:46:16.636+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-10-13T08:46:16.755+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/dbt/adapters/clickhouse/nativeclient.py", line 83, in _create_client
+[2026-10-13T08:46:16.785+0000] {subprocess.py:93} INFO -     client.connection.connect()
+[2026-10-13T08:46:16.787+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_driver/connection.py", line 449, in connect
+[2026-10-13T08:46:16.803+0000] {subprocess.py:93} INFO -     raise err
+[2026-10-13T08:46:16.805+0000] {subprocess.py:93} INFO - clickhouse_driver.errors.NetworkError: Code: 210. Temporary failure in name resolution (kcb_clickhouse:9000)
+[2026-10-13T08:46:16.807+0000] {subprocess.py:93} INFO - 
+[2026-10-13T08:46:16.809+0000] {subprocess.py:93} INFO - The above exception was the direct cause of the following exception:
+[2026-10-13T08:46:16.812+0000] {subprocess.py:93} INFO - 
+[2026-10-13T08:46:16.822+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-10-13T08:46:16.825+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/dbt/adapters/base/connections.py", line 237, in retry_connection
+[2026-10-13T08:46:16.835+0000] {subprocess.py:93} INFO -     connection.handle = connect()
+[2026-10-13T08:46:16.846+0000] {subprocess.py:93} INFO -                         ^^^^^^^^^
+[2026-10-13T08:46:16.852+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/dbt/adapters/clickhouse/connections.py", line 45, in connect
+[2026-10-13T08:46:16.857+0000] {subprocess.py:93} INFO -     return get_db_client(credentials)
+[2026-10-13T08:46:16.876+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:46:16.883+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/dbt/adapters/clickhouse/dbclient.py", line 67, in get_db_client
+[2026-10-13T08:46:16.890+0000] {subprocess.py:93} INFO -     return ChNativeClient(credentials)
+[2026-10-13T08:46:16.895+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:46:16.901+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/dbt/adapters/clickhouse/dbclient.py", line 102, in __init__
+[2026-10-13T08:46:16.908+0000] {subprocess.py:93} INFO -     self._client = self._create_client(credentials)
+[2026-10-13T08:46:16.912+0000] {subprocess.py:93} INFO -                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:46:16.919+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/dbt/adapters/clickhouse/nativeclient.py", line 85, in _create_client
+[2026-10-13T08:46:16.926+0000] {subprocess.py:93} INFO -     raise ChRetryableException(str(ex)) from ex
+[2026-10-13T08:46:16.936+0000] {subprocess.py:93} INFO - dbt.adapters.clickhouse.dbclient.ChRetryableException: Code: 210. Temporary failure in name resolution (kcb_clickhouse:9000)
+[2026-10-13T08:46:16.945+0000] {subprocess.py:93} INFO - 
+[2026-10-13T08:46:16.947+0000] {subprocess.py:93} INFO - During handling of the above exception, another exception occurred:
+[2026-10-13T08:46:16.955+0000] {subprocess.py:93} INFO - 
+[2026-10-13T08:46:16.956+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-10-13T08:46:16.966+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_driver/connection.py", line 428, in connect
+[2026-10-13T08:46:16.976+0000] {subprocess.py:93} INFO -     return self._init_connection(host, port)
+[2026-10-13T08:46:16.985+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:46:16.988+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_driver/connection.py", line 358, in _init_connection
+[2026-10-13T08:46:16.991+0000] {subprocess.py:93} INFO -     self.socket = self._create_socket(host, port)
+[2026-10-13T08:46:16.993+0000] {subprocess.py:93} INFO -                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:46:17.003+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_driver/connection.py", line 305, in _create_socket
+[2026-10-13T08:46:17.006+0000] {subprocess.py:93} INFO -     for res in socket.getaddrinfo(host, port, 0, socket.SOCK_STREAM):
+[2026-10-13T08:46:17.008+0000] {subprocess.py:93} INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:46:17.017+0000] {subprocess.py:93} INFO -   File "/usr/local/lib/python3.12/socket.py", line 963, in getaddrinfo
+[2026-10-13T08:46:17.021+0000] {subprocess.py:93} INFO -     for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+[2026-10-13T08:46:17.023+0000] {subprocess.py:93} INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:46:17.026+0000] {subprocess.py:93} INFO - socket.gaierror: [Errno -3] Temporary failure in name resolution
+[2026-10-13T08:46:17.036+0000] {subprocess.py:93} INFO - [0m08:46:16
+[2026-10-13T08:46:17.041+0000] {subprocess.py:93} INFO - [0m08:46:16  Finished running  in 0 hours 0 minutes and 23.41 seconds (23.41s).
+[2026-10-13T08:46:17.048+0000] {subprocess.py:93} INFO - [0m08:46:16  [[31mERROR[0m]: Encountered an error:
+[2026-10-13T08:46:17.052+0000] {subprocess.py:93} INFO - Database Error
+[2026-10-13T08:46:17.057+0000] {subprocess.py:93} INFO -   Code: 210. Temporary failure in name resolution (kcb_clickhouse:9000)
+[2026-10-13T08:46:26.373+0000] {job.py:226} ERROR - Job heartbeat failed with error. Scheduler is in unhealthy state
+[2026-10-13T08:46:34.205+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2026-10-13T08:46:34.233+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-10-13T08:46:34.496+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2026-10-13T08:46:34.643+0000] {taskinstance.py:1205} INFO - Marking task as UP_FOR_RETRY. dag_id=kcb_dbt_streaming_transformation, task_id=dbt_run_marts, execution_date=20261013T083515, start_date=20261013T084506, end_date=20261013T084634
+[2026-10-13T08:46:34.776+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 10 for task dbt_run_marts (Bash command failed. The command returned a non-zero exit code 2.; 586)
+[2026-10-13T08:46:34.848+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-10-13T08:46:35.376+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-10-13T08:46:35.398+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

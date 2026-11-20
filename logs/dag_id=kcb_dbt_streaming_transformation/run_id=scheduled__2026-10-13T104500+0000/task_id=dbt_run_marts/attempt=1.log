@@ -1,0 +1,38 @@
+[2026-10-13T11:00:24.171+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-10-13T11:00:24.222+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kcb_dbt_streaming_transformation.dbt_run_marts scheduled__2026-10-13T10:45:00+00:00 [queued]>
+[2026-10-13T11:00:24.234+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kcb_dbt_streaming_transformation.dbt_run_marts scheduled__2026-10-13T10:45:00+00:00 [queued]>
+[2026-10-13T11:00:24.234+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2026-10-13T11:00:24.252+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): dbt_run_marts> on 2026-10-13 10:45:00+00:00
+[2026-10-13T11:00:24.261+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'kcb_dbt_streaming_transformation', 'dbt_run_marts', 'scheduled__2026-10-13T10:45:00+00:00', '--job-id', '56', '--raw', '--subdir', 'DAGS_FOLDER/kcb_dbt_pipeline.py', '--cfg-path', '/tmp/tmpxcbhf2_1']
+[2026-10-13T11:00:24.264+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1587) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-10-13T11:00:24.264+0000] {standard_task_runner.py:91} INFO - Job 56: Subtask dbt_run_marts
+[2026-10-13T11:00:24.264+0000] {standard_task_runner.py:63} INFO - Started process 1588 to run task
+[2026-10-13T11:00:24.338+0000] {task_command.py:426} INFO - Running <TaskInstance: kcb_dbt_streaming_transformation.dbt_run_marts scheduled__2026-10-13T10:45:00+00:00 [running]> on host 1422926e07d0
+[2026-10-13T11:00:24.469+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='kcb_data_platform' AIRFLOW_CTX_DAG_ID='kcb_dbt_streaming_transformation' AIRFLOW_CTX_TASK_ID='dbt_run_marts' AIRFLOW_CTX_EXECUTION_DATE='2026-10-13T10:45:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-10-13T10:45:00+00:00'
+[2026-10-13T11:00:24.470+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-10-13T11:00:24.488+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-13T11:00:24.491+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/airflow/kcb_dbt && python -m dbt.cli.main run --select marts --profiles-dir /home/airflow/.dbt']
+[2026-10-13T11:00:24.501+0000] {subprocess.py:86} INFO - Output:
+[2026-10-13T11:00:28.470+0000] {subprocess.py:93} INFO - <frozen runpy>:128: RuntimeWarning: 'dbt.cli.main' found in sys.modules after import of package 'dbt.cli', but prior to execution of 'dbt.cli.main'; this may result in unpredictable behaviour
+[2026-10-13T11:00:28.694+0000] {subprocess.py:93} INFO - [0m11:00:28  Running with dbt=1.12.5
+[2026-10-13T11:00:29.228+0000] {subprocess.py:93} INFO - [0m11:00:29  Registered adapter: clickhouse=1.10.3
+[2026-10-13T11:00:30.114+0000] {subprocess.py:93} INFO - [0m11:00:30  Found 6 models, 4 sources, 547 macros
+[2026-10-13T11:00:30.120+0000] {subprocess.py:93} INFO - [0m11:00:30
+[2026-10-13T11:00:30.123+0000] {subprocess.py:93} INFO - [0m11:00:30  Concurrency: 1 threads (target='dev')
+[2026-10-13T11:00:30.125+0000] {subprocess.py:93} INFO - [0m11:00:30
+[2026-10-13T11:00:30.579+0000] {subprocess.py:93} INFO - [0m11:00:30  1 of 2 START sql table model `kcb_analytics`.`fct_loan_performance` ............ [RUN]
+[2026-10-13T11:00:31.345+0000] {subprocess.py:93} INFO - [0m11:00:31  1 of 2 OK created sql table model `kcb_analytics`.`fct_loan_performance` ....... [[32mOK[0m in 0.76s]
+[2026-10-13T11:00:31.351+0000] {subprocess.py:93} INFO - [0m11:00:31  2 of 2 START sql table model `kcb_analytics`.`dim_customer_risk_profile` ....... [RUN]
+[2026-10-13T11:00:31.649+0000] {subprocess.py:93} INFO - [0m11:00:31  2 of 2 OK created sql table model `kcb_analytics`.`dim_customer_risk_profile` .. [[32mOK[0m in 0.29s]
+[2026-10-13T11:00:31.661+0000] {subprocess.py:93} INFO - [0m11:00:31
+[2026-10-13T11:00:31.662+0000] {subprocess.py:93} INFO - [0m11:00:31  Finished running 2 table models in 0 hours 0 minutes and 1.53 seconds (1.53s).
+[2026-10-13T11:00:31.806+0000] {subprocess.py:93} INFO - [0m11:00:31
+[2026-10-13T11:00:31.808+0000] {subprocess.py:93} INFO - [0m11:00:31  [32mCompleted successfully[0m
+[2026-10-13T11:00:31.810+0000] {subprocess.py:93} INFO - [0m11:00:31
+[2026-10-13T11:00:31.811+0000] {subprocess.py:93} INFO - [0m11:00:31  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=2
+[2026-10-13T11:00:33.474+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-10-13T11:00:33.476+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-10-13T11:00:33.537+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=kcb_dbt_streaming_transformation, task_id=dbt_run_marts, execution_date=20261013T104500, start_date=20261013T110024, end_date=20261013T110033
+[2026-10-13T11:00:33.588+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-10-13T11:00:33.619+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-10-13T11:00:33.622+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,101 @@
+[2026-10-13T08:35:18.098+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-10-13T08:35:18.255+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kcb_dbt_streaming_transformation.dbt_compile manual__2026-10-13T08:35:15.785315+00:00 [queued]>
+[2026-10-13T08:35:18.283+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kcb_dbt_streaming_transformation.dbt_compile manual__2026-10-13T08:35:15.785315+00:00 [queued]>
+[2026-10-13T08:35:18.284+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2026-10-13T08:35:18.310+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): dbt_compile> on 2026-10-13 08:35:15.785315+00:00
+[2026-10-13T08:35:18.330+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'kcb_dbt_streaming_transformation', 'dbt_compile', 'manual__2026-10-13T08:35:15.785315+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/kcb_dbt_pipeline.py', '--cfg-path', '/tmp/tmpptsmpzfm']
+[2026-10-13T08:35:18.335+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=422) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-10-13T08:35:18.338+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask dbt_compile
+[2026-10-13T08:35:18.339+0000] {standard_task_runner.py:63} INFO - Started process 424 to run task
+[2026-10-13T08:35:18.441+0000] {task_command.py:426} INFO - Running <TaskInstance: kcb_dbt_streaming_transformation.dbt_compile manual__2026-10-13T08:35:15.785315+00:00 [running]> on host 1422926e07d0
+[2026-10-13T08:35:18.712+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='kcb_data_platform' AIRFLOW_CTX_DAG_ID='kcb_dbt_streaming_transformation' AIRFLOW_CTX_TASK_ID='dbt_compile' AIRFLOW_CTX_EXECUTION_DATE='2026-10-13T08:35:15.785315+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-13T08:35:15.785315+00:00'
+[2026-10-13T08:35:18.715+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-10-13T08:35:18.855+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-13T08:35:18.857+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/airflow/kcb_dbt && python -m dbt.cli.main compile --profiles-dir /home/airflow/.dbt']
+[2026-10-13T08:35:18.883+0000] {subprocess.py:86} INFO - Output:
+[2026-10-13T08:35:26.215+0000] {subprocess.py:93} INFO - <frozen runpy>:128: RuntimeWarning: 'dbt.cli.main' found in sys.modules after import of package 'dbt.cli', but prior to execution of 'dbt.cli.main'; this may result in unpredictable behaviour
+[2026-10-13T08:35:26.860+0000] {subprocess.py:93} INFO - [0m08:35:26  Running with dbt=1.12.5
+[2026-10-13T08:35:28.063+0000] {subprocess.py:93} INFO - [0m08:35:28  Registered adapter: clickhouse=1.10.3
+[2026-10-13T08:35:28.675+0000] {subprocess.py:93} INFO - [0m08:35:28  Unable to do partial parsing because a project config has changed
+[2026-10-13T08:35:33.379+0000] {subprocess.py:93} INFO - [0m08:35:33  Found 6 models, 4 sources, 547 macros
+[2026-10-13T08:35:33.387+0000] {subprocess.py:93} INFO - [0m08:35:33
+[2026-10-13T08:35:33.389+0000] {subprocess.py:93} INFO - [0m08:35:33  Concurrency: 1 threads (target='dev')
+[2026-10-13T08:35:33.391+0000] {subprocess.py:93} INFO - [0m08:35:33
+[2026-10-13T08:35:33.896+0000] {subprocess.py:93} INFO - WARNING:clickhouse_driver.connection:Failed to connect to localhost:9000
+[2026-10-13T08:35:33.897+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-10-13T08:35:33.898+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_driver/connection.py", line 428, in connect
+[2026-10-13T08:35:33.899+0000] {subprocess.py:93} INFO -     return self._init_connection(host, port)
+[2026-10-13T08:35:33.900+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:35:33.901+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_driver/connection.py", line 358, in _init_connection
+[2026-10-13T08:35:33.903+0000] {subprocess.py:93} INFO -     self.socket = self._create_socket(host, port)
+[2026-10-13T08:35:33.904+0000] {subprocess.py:93} INFO -                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:35:33.905+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_driver/connection.py", line 326, in _create_socket
+[2026-10-13T08:35:33.906+0000] {subprocess.py:93} INFO -     raise err
+[2026-10-13T08:35:33.906+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_driver/connection.py", line 317, in _create_socket
+[2026-10-13T08:35:33.907+0000] {subprocess.py:93} INFO -     sock.connect(sa)
+[2026-10-13T08:35:33.908+0000] {subprocess.py:93} INFO - ConnectionRefusedError: [Errno 111] Connection refused
+[2026-10-13T08:35:34.901+0000] {subprocess.py:93} INFO - WARNING:clickhouse_driver.connection:Failed to connect to localhost:9000
+[2026-10-13T08:35:34.902+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-10-13T08:35:34.902+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/dbt/adapters/clickhouse/nativeclient.py", line 83, in _create_client
+[2026-10-13T08:35:34.903+0000] {subprocess.py:93} INFO -     client.connection.connect()
+[2026-10-13T08:35:34.904+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_driver/connection.py", line 449, in connect
+[2026-10-13T08:35:34.905+0000] {subprocess.py:93} INFO -     raise err
+[2026-10-13T08:35:34.906+0000] {subprocess.py:93} INFO - clickhouse_driver.errors.NetworkError: Code: 210. Connection refused (localhost:9000)
+[2026-10-13T08:35:34.907+0000] {subprocess.py:93} INFO - 
+[2026-10-13T08:35:34.907+0000] {subprocess.py:93} INFO - The above exception was the direct cause of the following exception:
+[2026-10-13T08:35:34.908+0000] {subprocess.py:93} INFO - 
+[2026-10-13T08:35:34.908+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-10-13T08:35:34.909+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/dbt/adapters/base/connections.py", line 237, in retry_connection
+[2026-10-13T08:35:34.910+0000] {subprocess.py:93} INFO -     connection.handle = connect()
+[2026-10-13T08:35:34.910+0000] {subprocess.py:93} INFO -                         ^^^^^^^^^
+[2026-10-13T08:35:34.912+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/dbt/adapters/clickhouse/connections.py", line 45, in connect
+[2026-10-13T08:35:34.912+0000] {subprocess.py:93} INFO -     return get_db_client(credentials)
+[2026-10-13T08:35:34.913+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:35:34.914+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/dbt/adapters/clickhouse/dbclient.py", line 67, in get_db_client
+[2026-10-13T08:35:34.915+0000] {subprocess.py:93} INFO -     return ChNativeClient(credentials)
+[2026-10-13T08:35:34.916+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:35:34.917+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/dbt/adapters/clickhouse/dbclient.py", line 102, in __init__
+[2026-10-13T08:35:34.918+0000] {subprocess.py:93} INFO -     self._client = self._create_client(credentials)
+[2026-10-13T08:35:34.918+0000] {subprocess.py:93} INFO -                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:35:34.919+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/dbt/adapters/clickhouse/nativeclient.py", line 85, in _create_client
+[2026-10-13T08:35:34.920+0000] {subprocess.py:93} INFO -     raise ChRetryableException(str(ex)) from ex
+[2026-10-13T08:35:34.921+0000] {subprocess.py:93} INFO - dbt.adapters.clickhouse.dbclient.ChRetryableException: Code: 210. Connection refused (localhost:9000)
+[2026-10-13T08:35:34.921+0000] {subprocess.py:93} INFO - 
+[2026-10-13T08:35:34.922+0000] {subprocess.py:93} INFO - During handling of the above exception, another exception occurred:
+[2026-10-13T08:35:34.923+0000] {subprocess.py:93} INFO - 
+[2026-10-13T08:35:34.923+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-10-13T08:35:34.924+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_driver/connection.py", line 428, in connect
+[2026-10-13T08:35:34.924+0000] {subprocess.py:93} INFO -     return self._init_connection(host, port)
+[2026-10-13T08:35:34.925+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:35:34.926+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_driver/connection.py", line 358, in _init_connection
+[2026-10-13T08:35:34.926+0000] {subprocess.py:93} INFO -     self.socket = self._create_socket(host, port)
+[2026-10-13T08:35:34.927+0000] {subprocess.py:93} INFO -                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-10-13T08:35:34.928+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_driver/connection.py", line 326, in _create_socket
+[2026-10-13T08:35:34.929+0000] {subprocess.py:93} INFO -     raise err
+[2026-10-13T08:35:34.929+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/clickhouse_driver/connection.py", line 317, in _create_socket
+[2026-10-13T08:35:34.930+0000] {subprocess.py:93} INFO -     sock.connect(sa)
+[2026-10-13T08:35:34.931+0000] {subprocess.py:93} INFO - ConnectionRefusedError: [Errno 111] Connection refused
+[2026-10-13T08:35:34.931+0000] {subprocess.py:93} INFO - [0m08:35:34  [[31mERROR[0m]: Encountered an error:
+[2026-10-13T08:35:34.932+0000] {subprocess.py:93} INFO - Database Error
+[2026-10-13T08:35:34.933+0000] {subprocess.py:93} INFO -   Code: 210. Connection refused (localhost:9000)
+[2026-10-13T08:35:36.913+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2026-10-13T08:35:36.916+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-10-13T08:35:36.942+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2026-10-13T08:35:36.951+0000] {taskinstance.py:1205} INFO - Marking task as UP_FOR_RETRY. dag_id=kcb_dbt_streaming_transformation, task_id=dbt_compile, execution_date=20261013T083515, start_date=20261013T083518, end_date=20261013T083536
+[2026-10-13T08:35:36.976+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 4 for task dbt_compile (Bash command failed. The command returned a non-zero exit code 2.; 424)
+[2026-10-13T08:35:37.001+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-10-13T08:35:37.051+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-10-13T08:35:37.055+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
